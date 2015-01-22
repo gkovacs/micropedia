@@ -1,8 +1,8 @@
 Welcome to Micropedia! Here are some suggested topics:
 
-[Europe](europe): learn about European civilization and history
-
 [Divergent](divergent): a novel about faction struggles in a post-apocalyptic society
+
+[Europe](europe): learn about European civilization and history
 
 [NP completeness](np-completeness): what problems can't we easily solve with computers?
 
