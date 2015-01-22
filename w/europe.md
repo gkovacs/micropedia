@@ -1,4 +1,4 @@
-[Europe](europe) is a [continent](continent)
+Europe is one of the 7 [continents](continents)
 
 [Countries](europe-countries): ever heard of [Andorra](andorra) and [Luxembourg](luxembourg)?
 

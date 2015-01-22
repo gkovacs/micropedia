@@ -6,12 +6,19 @@ require! {
 
 app = express()
 
-#app.use express.static(__dirname + '/static')
+app.set 'view engine', 'jade'
+app.set 'views', __dirname + '/static'
+
+app.use express.static(__dirname + '/static')
 
 app.listen(process.env.PORT ? 3000)
 
+app.get '/feed', (req, res) ->
+  res.render 'feed', {}
+
 app.get '/', (req, res) ->
-  res.redirect '/w/index'
+  #res.redirect '/w/index'
+  res.render 'feed', {}
 
 app.get '/w', (req, res) ->
   res.redirect '/w/index'

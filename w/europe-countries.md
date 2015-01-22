@@ -1,4 +1,4 @@
-Countries in [Europe](europe)
+[Europe](europe) > Countries
 
 [Western Europe](western-europe-countries): France, Spain, etc
 

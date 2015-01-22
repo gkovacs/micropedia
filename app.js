@@ -5,9 +5,15 @@
   fs = require('fs');
   markdown = require('markdown').markdown;
   app = express();
+  app.set('view engine', 'jade');
+  app.set('views', __dirname + '/static');
+  app.use(express['static'](__dirname + '/static'));
   app.listen((ref$ = process.env.PORT) != null ? ref$ : 3000);
+  app.get('/feed', function(req, res){
+    return res.render('feed', {});
+  });
   app.get('/', function(req, res){
-    return res.redirect('/w/index');
+    return res.render('feed', {});
   });
   app.get('/w', function(req, res){
     return res.redirect('/w/index');
