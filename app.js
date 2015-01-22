@@ -18,6 +18,9 @@
   app.get('/w', function(req, res){
     return res.redirect('/w/index');
   });
+  app.get('/wiki', function(req, res){
+    return res.redirect('/w/index');
+  });
   app.get(/^\/w\/(.+)/, function(req, res){
     var filename, filepath, contents;
     filename = req.params[0];
@@ -28,5 +31,17 @@
     }
     contents = fs.readFileSync(filepath, 'utf8');
     return res.send(markdown.toHTML(contents));
+  });
+  app.get(/^\/markdown\/(.+)/, function(req, res){
+    var filename, filepath, contents;
+    filename = req.params[0];
+    filepath = 'w/' + filename + '.md';
+    if (!fs.existsSync(filepath)) {
+      res.send('article does not exist: ' + filename);
+      return;
+    }
+    contents = fs.readFileSync(filepath, 'utf8');
+    res.type('text/plain');
+    return res.send(contents);
   });
 }).call(this);

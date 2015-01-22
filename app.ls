@@ -23,6 +23,9 @@ app.get '/', (req, res) ->
 app.get '/w', (req, res) ->
   res.redirect '/w/index'
 
+app.get '/wiki', (req, res) ->
+  res.redirect '/w/index'
+
 app.get /^\/w\/(.+)/, (req, res) ->
   filename = req.params[0]
   filepath = 'w/' + filename + '.md'
@@ -31,3 +34,13 @@ app.get /^\/w\/(.+)/, (req, res) ->
     return
   contents = fs.readFileSync(filepath, 'utf8')
   res.send markdown.toHTML(contents)
+
+app.get /^\/markdown\/(.+)/, (req, res) ->
+  filename = req.params[0]
+  filepath = 'w/' + filename + '.md'
+  if not fs.existsSync(filepath)
+    res.send 'article does not exist: ' + filename
+    return
+  contents = fs.readFileSync(filepath, 'utf8')
+  res.type 'text/plain'
+  res.send contents
