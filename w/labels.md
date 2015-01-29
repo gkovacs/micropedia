@@ -1,0 +1,1 @@
+A label is one of a discrete set of possible classes that can be assigned to an example during [classification](classifier). For example, if our classification problem was predicting whether a tumor is malignant or benign, then the labels would be "malignant" and "benign".

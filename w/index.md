@@ -8,3 +8,4 @@ Welcome to Micropedia! Here are some suggested topics:
 
 [The Odyssey](odyssey): ancient greek poem about a guy who takes 10 years to get back home, only to find that his wife is cheating on him
 
+[Machine Learning](machine-learning): the field of study that gives computers the ability to learn without explicitly being programmed

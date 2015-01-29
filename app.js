@@ -44,4 +44,28 @@
     res.type('text/plain');
     return res.send(contents);
   });
+  app.get(/^\/metadata\/(.+)/, function(req, res){
+    var filename, filepath, contents;
+    filename = req.params[0];
+    filepath = 'w/' + filename + '.yaml';
+    if (!fs.existsSync(filepath)) {
+      res.send('metadata does not exist: ' + filename);
+      return;
+    }
+    contents = fs.readFileSync(filepath, 'utf8');
+    res.type('text/plain');
+    return res.send(contents);
+  });
+  app.get(/^\/png\/(.+)/, function(req, res){
+    var filename, filepath;
+    filename = req.params[0];
+    filepath = 'w/' + filename + '.png';
+    if (!fs.existsSync(filepath)) {
+      res.send('png does not exist: ' + filename);
+      return;
+    }
+    return res.sendFile(filepath, {
+      root: __dirname
+    });
+  });
 }).call(this);

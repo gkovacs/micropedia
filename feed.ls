@@ -6,6 +6,7 @@ export insertArticle = (article_name) ->
     if mdata.indexOf('article does not exist:') == 0
       toastr.error 'no such article: ' + article_name
       return
+    #metadata = 
     data = markdown.toHTML(mdata)
     ndata = $(data)
     for x in ndata.find('a')
@@ -20,9 +21,34 @@ export insertArticle = (article_name) ->
       'border-radius': '10px'
     }).html(ndata)
     $('#feeditems').prepend newdiv
-  $.get("/markdown/#{article_name}", havearticle).fail ->
+  #$.get("/meta/#{article_name}", havemeta).fail ->
+  #  toastr.error 'no such meta: ' + article_name
+  #  return false
+  #havemeta = (metayaml) ->
+  #  $.get("/markdown/#{article_name}", (mdata) ->
+  #    havearticle(metayaml, mdata)
+  #  ).fail ->
+  #    toastr.error 'no such article: ' + article_name
+  #    return false
+  $.get("/markdown/#{article_name}", (mdata) ->
+    havearticle(mdata)
+  ).fail ->
     toastr.error 'no such article: ' + article_name
     return false
 
+export getUrlParameters = ->
+  url = window.location.href
+  hash = url.lastIndexOf('#')
+  if hash != -1
+    url = url.slice(0, hash)
+  map = {}
+  parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m,key,value) ->
+    map[key] = decodeURI(value)
+  )
+  return map
+
+
 $(document).ready ->
-  insertArticle 'index'
+  param = getUrlParameters()
+  article = param.page ? 'index'
+  insertArticle article

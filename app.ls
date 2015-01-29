@@ -44,3 +44,24 @@ app.get /^\/markdown\/(.+)/, (req, res) ->
   contents = fs.readFileSync(filepath, 'utf8')
   res.type 'text/plain'
   res.send contents
+
+app.get /^\/metadata\/(.+)/, (req, res) ->
+  filename = req.params[0]
+  filepath = 'w/' + filename + '.yaml'
+  if not fs.existsSync(filepath)
+    res.send 'metadata does not exist: ' + filename
+    return
+  contents = fs.readFileSync(filepath, 'utf8')
+  res.type 'text/plain'
+  res.send contents
+
+app.get /^\/png\/(.+)/, (req, res) ->
+  filename = req.params[0]
+  filepath = 'w/' + filename + '.png'
+  if not fs.existsSync(filepath)
+    res.send 'png does not exist: ' + filename
+    return
+  res.sendFile filepath, {root: __dirname}
+  #contents = fs.readFileSync(filepath, 'utf8')
+  #res.type 'image/png'
+  #res.send contents
