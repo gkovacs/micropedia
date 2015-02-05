@@ -7,7 +7,8 @@ export insertArticle = (article_name) ->
       toastr.error 'no such article: ' + article_name
       return
     #metadata = 
-    data = markdown.toHTML(mdata)
+    #data = markdown.toHTML(mdata)
+    data = marked(mdata)
     ndata = $(data)
     for x in ndata.find('a')
       target_article = $(x).attr('href')

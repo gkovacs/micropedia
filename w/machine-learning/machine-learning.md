@@ -3,7 +3,7 @@ Machine learning gives computers the ability to learn without being explicitly p
 Machine learning tasks can be divided into three categories, depending on the type of learning "signal" or "feedback" available:
 
 * [supervised learning](supervised-learning): where we give the algorithm some labeled examples ([training data](training-data)) in advance
-* unsupervised learning: where the algorithm is not given training data in advance
+* [unsupervised learning](unsupervised-learning): where the algorithm is not given training data in advance
 * reinforcement learning: where we give the algorithm a goal to optimize and a reward function
 
 Machine learning tasks can also be classified according to the desired output of the system:

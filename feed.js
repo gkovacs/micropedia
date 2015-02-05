@@ -10,7 +10,7 @@
         toastr.error('no such article: ' + article_name);
         return;
       }
-      data = markdown.toHTML(mdata);
+      data = marked(mdata);
       ndata = $(data);
       for (i$ = 0, len$ = (ref$ = ndata.find('a')).length; i$ < len$; ++i$) {
         x = ref$[i$];

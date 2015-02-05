@@ -7,4 +7,4 @@ Types of supervised learning:
 
 [Example of supervised learning problem](supervised-example)
 
-[Problem about supervised learning](supervised-problem)
+[Problem about supervised learning](supervised-learning-problem)
