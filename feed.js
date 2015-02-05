@@ -15,7 +15,10 @@
       for (i$ = 0, len$ = (ref$ = ndata.find('a')).length; i$ < len$; ++i$) {
         x = ref$[i$];
         target_article = $(x).attr('href');
-        $(x).attr('href', '#').attr('onclick', "insertArticle('" + target_article + "')");
+        $(x).attr('href', '#').attr('onclick', "insertArticle('" + target_article + "')").attr('data-toggle', 'tooltip').attr('data-placement', 'bottom');
+        if ($(x).attr('title') != null) {
+          $(x).addClass('needtoggle');
+        }
       }
       newdiv = J('div').css({
         'padding': '10px',
@@ -25,7 +28,9 @@
         'border-width': '1px',
         'border-radius': '10px'
       }).html(ndata);
-      return $('#feeditems').prepend(newdiv);
+      $('#feeditems').prepend(newdiv);
+      $('.needtoggle').tooltip();
+      return $('.needtoggle').removeClass('needtoggle');
     };
     return $.get("/markdown/" + article_name, function(mdata){
       return havearticle(mdata);

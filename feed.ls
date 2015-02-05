@@ -12,7 +12,11 @@ export insertArticle = (article_name) ->
     ndata = $(data)
     for x in ndata.find('a')
       target_article = $(x).attr('href')
-      $(x).attr('href', '#').attr('onclick', "insertArticle('#{target_article}')")
+      $(x).attr('href', '#').attr('onclick', "insertArticle('#{target_article}')").attr('data-toggle', 'tooltip').attr('data-placement', 'bottom')
+      if $(x).attr('title')?
+        $(x).addClass('needtoggle')
+      #if not $(x).attr('title')?
+      #  $(x).attr('title', target_article)
     newdiv = J('div').css({
       'padding': '10px'
       'margin': '10px'
@@ -22,6 +26,8 @@ export insertArticle = (article_name) ->
       'border-radius': '10px'
     }).html(ndata)
     $('#feeditems').prepend newdiv
+    $('.needtoggle').tooltip()
+    $('.needtoggle').removeClass('needtoggle')
   #$.get("/meta/#{article_name}", havemeta).fail ->
   #  toastr.error 'no such meta: ' + article_name
   #  return false

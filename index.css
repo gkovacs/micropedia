@@ -16,7 +16,7 @@
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
   font-family: monospace;
-  color: #317EAC;
+  color: black;
 }
 
 .rightcol {
@@ -28,7 +28,42 @@
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
   font-family: monospace;
-  color: #317EAC;
+  color: black;
+}
+
+.codelink {
+  background-color: #f7f7f9;
+  border: 1px solid #317EAC;
+  padding: 3px 3px;
+  margin: 3px 3px;
+  border-radius: 3px;
+  font-family: monospace;
+  color: black;
+  text-decoration: none;
+}
+
+.codelink:link {
+  text-decoration: none;
+}
+
+.codelink:hover {
+  text-decoration: none;
+}
+
+.codelink:visited {
+  text-decoration: none;
+}
+
+.codelink:active {
+  text-decoration: none;
+}
+
+.codenolink {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin: 3px 3px;
+  color: black;
+  font-family: monospace;
 }
 
 pre {
@@ -40,7 +75,7 @@ pre {
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
   font-family: monospace;
-  color: #317EAC;
+  color: black;
   width: 600px;
 }
 
@@ -48,5 +83,5 @@ code {
   padding: 2px 4px;
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
-  color: #317EAC
+  color: black;
 }
