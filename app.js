@@ -150,4 +150,18 @@
       root: __dirname
     });
   });
+  app.get(/^\/js\/(.+)/, function(req, res){
+    var filename, pattern, matches, filepath;
+    filename = req.params[0];
+    pattern = 'w/**/' + filename + '.js';
+    matches = glob.sync(pattern);
+    if (matches.length === 0) {
+      res.send('js does not exist: ' + filename);
+      return;
+    }
+    filepath = matches[0];
+    return res.sendFile(filepath, {
+      root: __dirname
+    });
+  });
 }).call(this);

@@ -15,7 +15,12 @@
       for (i$ = 0, len$ = (ref$ = ndata.find('a')).length; i$ < len$; ++i$) {
         x = ref$[i$];
         target_article = $(x).attr('href');
-        $(x).attr('href', '#').attr('onclick', "insertArticle('" + target_article + "')").attr('data-toggle', 'tooltip').attr('data-placement', 'bottom');
+        if (target_article.indexOf('://') !== -1) {
+          $(x).attr('target', '_blank');
+        } else {
+          $(x).attr('href', '#').attr('onclick', "insertArticle('" + target_article + "')");
+        }
+        $(x).attr('data-toggle', 'tooltip').attr('data-placement', 'bottom');
         if ($(x).attr('title') != null) {
           $(x).addClass('needtoggle');
         }

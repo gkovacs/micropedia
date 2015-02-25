@@ -1,0 +1,1 @@
+Concept evolution refers to the labeler’s process of defining and refining a concept in their minds, and can result in different labels being applied to similar items due to changes in the labeler’s notion of the underlying concept.

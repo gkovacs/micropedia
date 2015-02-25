@@ -1,0 +1,14 @@
+{
+  "name": "livescript",
+  "_cacheHeaders": {
+    "ETag": "\"116ea3a8b7fd7aff39deb4bd028b36ce2c6c1473\"",
+    "Content-Length": "371688",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:116ea3a8b",
+  "main": "index.js",
+  "_source": "https://raw.githubusercontent.com/gkz/LiveScript/master/browser/livescript.js",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/gkz/LiveScript/master/browser/livescript.js",
+  "_direct": true
+}

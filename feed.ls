@@ -6,13 +6,17 @@ export insertArticle = (article_name) ->
     if mdata.indexOf('article does not exist:') == 0
       toastr.error 'no such article: ' + article_name
       return
-    #metadata = 
+    #metadata =
     #data = markdown.toHTML(mdata)
     data = marked(mdata)
     ndata = $(data)
     for x in ndata.find('a')
       target_article = $(x).attr('href')
-      $(x).attr('href', '#').attr('onclick', "insertArticle('#{target_article}')").attr('data-toggle', 'tooltip').attr('data-placement', 'bottom')
+      if target_article.indexOf('://') != -1 # external link
+        $(x).attr('target', '_blank')
+      else
+        $(x).attr('href', '#').attr('onclick', "insertArticle('#{target_article}')")
+      $(x).attr('data-toggle', 'tooltip').attr('data-placement', 'bottom')
       if $(x).attr('title')?
         $(x).addClass('needtoggle')
       #if not $(x).attr('title')?

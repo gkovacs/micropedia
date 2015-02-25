@@ -16,3 +16,6 @@ Welcome to Micropedia! Here are some suggested topics:
 
 [LiveScript](livescript): A Haskell-inspired functional programming language that compiles to Javascript.
 
+[McDonalds in Spanish](mcdonalds): Learn enough Spanish to serve Spanish-speaking customers at McDonalds.
+
+[黑社会2:以和为贵](srt): Learn enough Chinese to watch the movie 黑社会2:以和为贵 
